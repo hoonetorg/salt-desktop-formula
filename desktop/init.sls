@@ -22,3 +22,7 @@ desktop__pkggroup_desktop_{{packagegroup}}:
     - ignore_retcode: True
 {% endfor %}
 
+desktop__pkggroup_graphical_target:
+  cmd.run:
+    - name: systemctl set-default graphical.target && systemctl isolate graphical.target
+    - unless: test  "graphical.target" == "`systemctl get-default`" 
