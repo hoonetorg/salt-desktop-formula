@@ -18,7 +18,7 @@ desktop__pkg_desktop:
 desktop__pkggroup_desktop_{{packagegroup}}:
   module.run:
     - name: pkg.group_install
-    - {{packagegroup}}
+    - m_name: {{packagegroup}}
     - ignore_retcode: True
 {% endfor %}
 
