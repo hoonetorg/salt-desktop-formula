@@ -3,11 +3,14 @@
 
 
 {% for packagegroup in desktop.packagegroups %}
+#desktop__pkggroup_desktop_{{packagegroup}}:
+#  module.run:
+#    - name: pkg.group_install
+#    - m_name: {{packagegroup}}
+#    - ignore_retcode: True
 desktop__pkggroup_desktop_{{packagegroup}}:
-  module.run:
-    - name: pkg.group_install
-    - m_name: {{packagegroup}}
-    - ignore_retcode: True
+  cmd.run:
+    - name: yum -y group install {{packagegroup}}
 {% endfor %}
 
 desktop__pkg_desktop:
