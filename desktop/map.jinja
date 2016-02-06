@@ -253,6 +253,12 @@
   },
 }, merge=salt['pillar.get']('desktop:lookup')) %}
 
+# cannot be skipped on el7.2, because mandatory, causes that no package out of this group will be installed
+# but: packages do not exist
+# -> comp.xml's broken
+# -> pkg.group_installed needs improvement
+#   -> option: ignore_mandatority !?!
+#
 #                       'GNOME': {
 #                         'skip': [
 #                           'gvfs-obexftp',
