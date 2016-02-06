@@ -2,18 +2,18 @@
 {% from "desktop/map.jinja" import desktop with context %}
 
 
-{% for packagegroup,packagegroup_data in desktop.packagegroups.items()|default({}) %}
+{% for packagegroup in desktop.packagegroups|default([]) %}
 #desktop__pkggroup_desktop_{{packagegroup}}:
 #  cmd.run:
 #    - name: yum -y group install {{packagegroup}}
 desktop__pkggroup_desktop_{{packagegroup}}:
   pkg.group_installed:
     - name: {{packagegroup}}
-    {% if packagegroup_data.skip is defined and packagegroup_data.skip %}
-    - skip: {{packagegroup_data.skip|yaml}}
+    {% if desktop['packagegroupdetails'][packagegroup]['skip'] is defined and desktop['packagegroupdetails'][packagegroup]['skip'] %}
+    - skip: {{desktop['packagegroupdetails'][packagegroup]['skip']|yaml}}
     {% endif %}
-    {% if packagegroup_data.include is defined and packagegroup_data.include %}
-    - include: {{packagegroup_data.skip|yaml}}
+    {% if desktop['packagegroupdetails'][packagegroup]['include'] is defined and desktop['packagegroupdetails'][packagegroup]['include'] %}
+    - include: {{desktop['packagegroupdetails'][packagegroup]['include']|yaml}}
     {% endif %}
 {% endfor %}
 
