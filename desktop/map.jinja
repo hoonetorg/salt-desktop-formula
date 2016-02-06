@@ -140,37 +140,18 @@
                            'ql23xx-firmware',
                          ]
                        },
+
                        'base': {
                          'skip': [
                            'yum-plugin-security',
                          ]
                        },
 
-
-#                       'GNOME': {
-#                         'skip': [
-#                           'gvfs-obexftp',
-#                           'redhat-access-gui',
-#                         ]
-#                       },
-
-#                       'mate-desktop': {
-#                         'skip': [
-#                           'mate-dialogs',
-#                         ]
-#                       },
-
                        'internet-browser': {
                          'skip': [
                            'totem-mozplugin',
                          ]
                        },
-
-#                       'buildsys-build': {
-#                         'skip': [
-#                           'util-linux-ng',
-#                         ]
-#                       },
 
                        'electronic-lab': {
                          'skip': [
@@ -271,3 +252,22 @@
     'packages': [ 'freerdp', ],
   },
 }, merge=salt['pillar.get']('desktop:lookup')) %}
+
+#                       'GNOME': {
+#                         'skip': [
+#                           'gvfs-obexftp',
+#                           'redhat-access-gui',
+#                         ]
+#                       },
+
+#                       'mate-desktop': {
+#                         'skip': [
+#                           'mate-dialogs',
+#                         ]
+#                       },
+
+#                       'buildsys-build': {
+#                         'skip': [
+#                           'util-linux-ng',
+#                         ]
+#                       },
