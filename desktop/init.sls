@@ -1,7 +1,6 @@
 # vim: sts=2 ts=2 sw=2 et ai
 {% from "desktop/map.jinja" import desktop with context %}
 
-
 {% for packagegroup in desktop.packagegroups|default([]) %}
 #desktop__pkggroup_desktop_{{packagegroup}}:
 #  cmd.run:
@@ -9,11 +8,13 @@
 desktop__pkggroup_desktop_{{packagegroup}}:
   pkg.group_installed:
     - name: {{packagegroup}}
-    {% if desktop['packagegroupdetails'][packagegroup]['skip'] is defined and desktop['packagegroupdetails'][packagegroup]['skip'] %}
+    {% if desktop['packagegroupdetails'][packagegroup] is defined and desktop['packagegroupdetails'][packagegroup] %}
+      {% if desktop['packagegroupdetails'][packagegroup]['skip'] is defined and desktop['packagegroupdetails'][packagegroup]['skip'] %}
     - skip: {{desktop['packagegroupdetails'][packagegroup]['skip']|yaml}}
-    {% endif %}
-    {% if desktop['packagegroupdetails'][packagegroup]['include'] is defined and desktop['packagegroupdetails'][packagegroup]['include'] %}
+      {% endif %}
+      {% if desktop['packagegroupdetails'][packagegroup]['include'] is defined and desktop['packagegroupdetails'][packagegroup]['include'] %}
     - include: {{desktop['packagegroupdetails'][packagegroup]['include']|yaml}}
+      {% endif %}
     {% endif %}
 {% endfor %}
 
