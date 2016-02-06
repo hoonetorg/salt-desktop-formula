@@ -129,56 +129,140 @@
                        'backup-client',
                      ],
     'packagegroupdetails': {
-                       'core': {},
-                       'base': {},
+                       'core': {
+                         skip: [
+                           bfa-firmware, 
+                           libertas-sd8686-firmware, 
+                           libertas-sd8787-firmware, 
+                           libertas-usb8388-firmware, 
+                           ql2100-firmware, 
+                           ql2200-firmware, 
+                           ql23xx-firmware,
+                         ]
+                       },
+                       'base': {
+                         skip: [
+                           yum-plugin-security,
+                         ]
+                       },
 
-                       'large-systems': {},
 
-                       'x11': {},
-                       'fonts': {},
-                       'legacy-x': {},
+                       'GNOME': {
+                         skip: [
+                           gvfs-obexftp, 
+                           redhat-access-gui,
+                         ]
+                       },
+                       'mate-desktop': {
+                         skip: [
+                           mate-dialogs,
+                         ]
+                       },
 
-                       'gnome-desktop': {},
-                       'gnome-apps': {},
-                       'mate-desktop': {},
-                       'input-methods': {},
-                       'guest-agents': {},
-                       'guest-desktop-agents': {},
-                       'desktop-debugging': {},
+                       'internet-browser': {
+                         skip: [
+                           totem-mozplugin,
+                         ]
+                       },
 
-                       'internet-browser': {},
-                       'internet-applications': {},
-                       'console-internet': {},
+                       'buildsys-build': {
+                         skip: [
+                           util-linux-ng,
+                         ]
+                       },
 
-                       'remote-desktop-clients': {},
+                       'electronic-lab': {
+                         skip: [
+                           alliance,
+                           archimedes,
+                           avarice,
+                           avr-binutils,
+                           avr-gcc,
+                           avr-gcc-c++,
+                           avr-gdb,
+                           avra,
+                           covered,
+                           dfu-programmer,
+                           dgc,
+                           dinotrace,
+                           eclipse-cdt,
+                           eclipse-eclox,
+                           eclipse-egit,
+                           eclipse-subclipse,
+                           eclipse-texlipse,
+                           eclipse-veditor,
+                           electric,
+                           emacs-dinotrace,
+                           emacs-irsim-mode,
+                           emacs-spice-mode,
+                           emacs-systemc-mode,
+                           emacs-verilog-mode,
+                           emacs-vregs-mode,
+                           eqntott,
+                           espresso-ab,
+                           fped,
+                           gds2pov,
+                           geda-gaf,
+                           gerbv,
+                           ghdl,
+                           gnucap,
+                           gnusim8085,
+                           gplcver,
+                           gpsim,
+                           gresistor,
+                           gsim85,
+                           gtkterm,
+                           hct,
+                           irsim,
+                           iverilog,
+                           ktechlab,
+                           linsmith,
+                           magic,
+                           magic-doc,
+                           mcu8051ide,
+                           mot-adms,
+                           nesc,
+                           netgen,
+                           ngspice,
+                           ngspice-doc,
+                           ovm,
+                           pcb,
+                           perl-Hardware-Verilog-Parser,
+                           perl-Hardware-Vhdl-Lexer,
+                           perl-Hardware-Vhdl-Parser,
+                           perl-Hardware-Vhdl-Tidy,
+                           perl-ModelSim-List,
+                           perl-Perlilog,
+                           perl-SystemC-Vregs,
+                           perl-SystemPerl,
+                           perl-Verilog-CodeGen,
+                           perl-Verilog-Perl,
+                           perl-Verilog-Readmem,
+                           pharosc,
+                           pharosc-alliance,
+                           pharosc-magic,
+                           pharosc-synopsys,
+                           pharosc-xcircuit,
+                           picprog,
+                           pikdev,
+                           piklab,
+                           pikloops,
+                           qucs,
+                           sk2py,
+                           tclspice,
+                           teal,
+                           tkgate,
+                           toped,
+                           uisp,
+                           usrp,
+                           verilator,
+                           vhd2vl,
+                           vrq,
+                           wb_builder,
+                           xcircuit,
+                         ]
+                       },
 
-                       'office-suite': {},
-                       'technical-writing': {},
-
-                       'network-file-system-client': {},
-                       'directory-client': {},
-                       'print-client': {},
-
-                       'networkmanager-submodules': {},
-                       'dial-up': {},
-                       'smart-card': {},
-
-                       'multimedia': {},
-
-                       'debugging': {},
-                       'performance': {},
-                       'virtualization-tools': {},
-
-                       'development': {},
-                       'additional-devel': {},
-                       'platform-devel': {},
-                       'buildsys-build': {},
-                       'java-platform': {},
-
-                       'graphics': {},
-                       'electronic-lab': {},
-
-                       'backup-client': {},
                      }
   },
   'default': {
