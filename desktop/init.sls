@@ -9,11 +9,11 @@
 desktop__pkggroup_desktop_{{packagegroup}}:
   pkg.group_installed:
     - name: {{packagegroup}}
-      {% if packagegroup_data.skip is defined and packagegroup_data.skip }}
+      {% if packagegroup_data.skip is defined and packagegroup_data.skip %}
       - skip:
             - {{packagegroup_data.skip}}
       {% endif %}
-      {% if packagegroup_data.include is defined and packagegroup_data.include }}
+      {% if packagegroup_data.include is defined and packagegroup_data.include %}
       - include:
             - {{packagegroup_data.skip}}
       {% endif %}
