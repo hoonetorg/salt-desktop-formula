@@ -2,15 +2,21 @@
 {% from "desktop/map.jinja" import desktop with context %}
 
 
-{% for packagegroup in desktop.packagegroups %}
+{% for packagegroup,packagegroup_data in desktop.packagegroups.items()|default({}) %}
 #desktop__pkggroup_desktop_{{packagegroup}}:
-#  module.run:
-#    - name: pkg.group_install
-#    - m_name: {{packagegroup}}
-#    - ignore_retcode: True
+#  cmd.run:
+#    - name: yum -y group install {{packagegroup}}
 desktop__pkggroup_desktop_{{packagegroup}}:
-  cmd.run:
-    - name: yum -y group install {{packagegroup}}
+  pkg.group_installed:
+    - name: {{packagegroup}}
+      {% if packagegroup_data.skip is defined and packagegroup_data.skip }}
+      - skip:
+            - {{packagegroup_data.skip}}
+      {% endif %}
+      {% if packagegroup_data.include is defined and packagegroup_data.include }}
+      - include:
+            - {{packagegroup_data.skip}}
+      {% endif %}
 {% endfor %}
 
 desktop__pkg_desktop:
