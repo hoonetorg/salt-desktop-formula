@@ -1,0 +1,6 @@
+# fix flash in chromium on el7 from epel (el8, fedora also?)
+mkdir -p /usr/lib64/chromium/PepperFlash
+ln -fs /usr/lib64/flash-plugin/libpepflashplayer.so /usr/lib64/chromium/PepperFlash
+ln -fs /usr/lib64/flash-plugin/manifest.json /usr/lib64/chromium/PepperFlash
+ls -al /usr/lib64/chromium-browser/PepperFlash/
+
